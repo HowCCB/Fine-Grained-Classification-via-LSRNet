@@ -27,13 +27,9 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 def count_identical_rows(tensor1, tensor2):
     
-    # 比较两个张量的对应元素是否相等
     equal_elements = torch.eq(tensor1, tensor2)
-    # 沿着行维度进行逻辑与操作，得到每行是否完全相同的布尔值张量
     rows_equal = torch.all(equal_elements, dim=1)
-    # 统计每行相同的数量
     num_same_rows = torch.sum(rows_equal).item()
-    # print("有", num_same_rows, "行是完全相同的。")
     return num_same_rows
 class CustomDataset(Dataset):
     def __init__(self, image_folder_path, csv_file_path, transform=None):
@@ -44,7 +40,6 @@ class CustomDataset(Dataset):
         self.label_encoder = MultiLabelBinarizer()
         self.num_classes = len(self.data['labels'].unique()) # 获取类别数量
 
-        # 对标签进行编码
         labels = [labels_str.split(' ') for labels_str in self.data['labels']]
         self.label_encoder.fit(labels)
 
