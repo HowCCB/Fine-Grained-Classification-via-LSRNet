@@ -1,3 +1,6 @@
+# Introduction
+This is a novel and efficient method of fine-grained classification based on RNN.
+Firstly ,it was used to fit the competition of plant-pathology.Link [here](https://www.kaggle.com/code/tarunpaparaju/plant-pathology-2020-eda-models) for more imformation.
 # Training
 + Configure the environment according to ```requirements.txt```
 + Place the data under a directory.
